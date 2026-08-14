@@ -99,7 +99,7 @@ function Leaf({
 }: {
   angle: number;
   y: number;
-  scale: number;
+  scale: [number, number, number];
 }) {
   return (
     <group rotation={[0, angle, 0]}>
@@ -121,7 +121,7 @@ function Arrangement() {
             key={i}
             angle={(i / 5) * Math.PI * 2}
             y={-0.35}
-            scale={[1.1, 0.35, 0.6]as unknown as number}
+            scale={[1.1, 0.35, 0.6]}
           />
         ))}
         <mesh position={[0, -1.15, 0]} castShadow>
