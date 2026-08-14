@@ -19,6 +19,12 @@
  */
 
 @theme inline {
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --color-petal: var(--petal);
+  --color-gold: var(--gold);
+  --color-gold-foreground: var(--gold-foreground);
+  --color-leaf: var(--leaf);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
