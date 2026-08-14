@@ -1,8 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
-import heroBouquet from "@/assets/hero-bouquet.jpg";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { Hero3D } from "@/components/Hero3D";
+import { SiteHeader } from "@/components/SiteHeader";
+import { SiteFooter } from "@/components/SiteFooter";
 import classWork from "@/assets/class-work.jpg";
-import mum from "@/assets/mum.jpg";
-import vase from "@/assets/vase.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -45,55 +45,16 @@ const courses = [
   },
 ];
 
-const gallery = [
-  { src: mum, alt: "Homecoming mum corsage in green and white ribbons" },
-  { src: vase, alt: "Single white orchid stem in a glass vase" },
-  { src: classWork, alt: "Student arranging a white and green centerpiece" },
-];
-
 function Index() {
   return (
     <div className="min-h-screen bg-background">
-      <header className="sticky top-0 z-50 border-b border-border/60 bg-background/75 backdrop-blur-xl">
-        <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <a href="#top" className="flex items-center gap-3">
-            <span className="grid size-9 place-items-center rounded-full bg-primary text-sm font-bold text-primary-foreground">
-              CF
-            </span>
-            <span className="text-sm leading-tight">
-              <span className="block font-semibold text-foreground">
-                Carroll Floral Design
-              </span>
-              <span className="block text-xs text-muted-foreground">
-                Southlake Carroll ISD
-              </span>
-            </span>
-          </a>
-          <div className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
-            <a className="transition-colors hover:text-foreground" href="#program">
-              Program
-            </a>
-            <a className="transition-colors hover:text-foreground" href="#studio">
-              Studio
-            </a>
-            <a className="transition-colors hover:text-foreground" href="#gallery">
-              Gallery
-            </a>
-          </div>
-          <a
-            href="#enroll"
-            className="rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-soft transition-transform hover:-translate-y-0.5"
-          >
-            Enroll
-          </a>
-        </nav>
-      </header>
+      <SiteHeader />
 
       <main id="top">
         <section className="canopy relative overflow-hidden">
           <div className="pointer-events-none absolute -left-24 top-10 size-72 rounded-full bg-leaf/25 blur-3xl" />
           <div className="pointer-events-none absolute -right-16 bottom-0 size-96 rounded-full bg-gold/20 blur-3xl" />
-          <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-6 py-24 md:grid-cols-2 md:py-32">
+          <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-6 py-24 md:grid-cols-2 md:py-28">
             <div className="rise">
               <span className="inline-flex items-center gap-2 rounded-full border border-petal/25 px-4 py-1.5 text-xs uppercase tracking-[0.18em] text-petal/85">
                 Carroll High School · Dragons
@@ -108,17 +69,17 @@ function Index() {
                 centerpiece for a Southlake event.
               </p>
               <div className="mt-9 flex flex-wrap gap-3">
-                <a
-                  href="#enroll"
+                <Link
+                  to="/inquiries"
                   className="rounded-full bg-gold px-7 py-3 text-sm font-semibold text-gold-foreground shadow-float transition-transform hover:-translate-y-0.5"
                 >
-                  Join the program
-                </a>
+                  Business inquiries
+                </Link>
                 <a
-                  href="#gallery"
+                  href="#program"
                   className="rounded-full border border-petal/30 px-7 py-3 text-sm font-semibold text-petal transition-colors hover:bg-petal/10"
                 >
-                  See student work
+                  Explore the program
                 </a>
               </div>
               <dl className="mt-14 grid max-w-sm grid-cols-3 gap-6">
@@ -137,24 +98,11 @@ function Index() {
               </dl>
             </div>
 
-            <div className="relative [perspective:1400px]">
-              <div className="drift">
-                <img
-                  src={heroBouquet}
-                  alt="White peony and eucalyptus arrangement in a glossy ceramic vase"
-                  width={1280}
-                  height={1280}
-                  className="w-full rounded-[2.5rem] shadow-float"
-                />
-              </div>
-              <div className="glass-card absolute -bottom-6 -left-6 hidden rounded-3xl px-5 py-4 sm:block">
-                <p className="text-xs uppercase tracking-wider text-muted-foreground">
-                  This week's lab
-                </p>
-                <p className="text-display text-lg text-foreground">
-                  Garden-style vase work
-                </p>
-              </div>
+            <div className="relative">
+              <Hero3D />
+              <p className="mt-2 text-center text-xs uppercase tracking-[0.2em] text-petal/50">
+                Drag to rotate · live 3D
+              </p>
             </div>
           </div>
         </section>
@@ -229,53 +177,27 @@ function Index() {
           </div>
         </section>
 
-        <section id="gallery" className="mx-auto max-w-6xl px-6 py-24">
-          <h2 className="text-display text-4xl md:text-5xl">Student work</h2>
-          <div className="mt-10 grid gap-6 sm:grid-cols-3 [perspective:1200px]">
-            {gallery.map((g) => (
-              <figure
-                key={g.alt}
-                className="float-3d overflow-hidden rounded-3xl border border-border bg-card"
-              >
-                <img
-                  src={g.src}
-                  alt={g.alt}
-                  loading="lazy"
-                  width={1024}
-                  height={768}
-                  className="aspect-4/3 w-full object-cover"
-                />
-              </figure>
-            ))}
-          </div>
-        </section>
-
-        <section id="enroll" className="mx-auto max-w-6xl px-6 pb-24">
+        <section className="mx-auto max-w-6xl px-6 py-24">
           <div className="canopy relative overflow-hidden rounded-[2.5rem] px-8 py-16 text-center md:px-16">
             <div className="pointer-events-none absolute -top-20 left-1/2 size-80 -translate-x-1/2 rounded-full bg-gold/20 blur-3xl" />
             <h2 className="text-display relative text-4xl md:text-5xl">
-              Add Floral Design to your schedule.
+              Working with the studio.
             </h2>
             <p className="relative mx-auto mt-4 max-w-lg text-petal/75">
-              Talk to your counselor during course selection, or stop by the design
-              lab at Carroll High School — 1501 W Southlake Blvd, Southlake, TX.
+              Local businesses, PTO groups, and Southlake families can commission
+              arrangements, mums, and event florals from our student designers.
             </p>
-            <a
-              href="mailto:floral@southlakecarroll.edu"
+            <Link
+              to="/inquiries"
               className="relative mt-9 inline-block rounded-full bg-gold px-8 py-3.5 text-sm font-semibold text-gold-foreground shadow-float transition-transform hover:-translate-y-0.5"
             >
-              Email the program
-            </a>
+              Start an inquiry
+            </Link>
           </div>
         </section>
       </main>
 
-      <footer className="border-t border-border py-10">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-6 text-sm text-muted-foreground sm:flex-row">
-          <p>Carroll High School Floral Design · Carroll ISD, Southlake TX</p>
-          <p>Go Dragons.</p>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }
