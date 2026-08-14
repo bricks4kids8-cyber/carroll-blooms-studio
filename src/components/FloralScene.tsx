@@ -65,9 +65,10 @@ function Bloom() {
   });
 
   const rings = [
-    { count: 7, radius: 0.9, tilt: -0.95, scale: 0.85, color: "#ffffff" },
-    { count: 6, radius: 0.62, tilt: -0.6, scale: 0.65, color: "#fdf8ec" },
-    { count: 5, radius: 0.34, tilt: -0.25, scale: 0.45, color: "#f7f0dc" },
+    { count: 10, radius: 0.7, tilt: -1.25, scale: 0.9, color: "#ffffff" },
+    { count: 8, radius: 0.5, tilt: -0.9, scale: 0.72, color: "#fdf8ec" },
+    { count: 6, radius: 0.3, tilt: -0.5, scale: 0.52, color: "#f7f0dc" },
+    { count: 5, radius: 0.16, tilt: -0.2, scale: 0.34, color: "#f3ead0" },
   ];
 
   return (
@@ -173,7 +174,7 @@ export default function FloralScene() {
     <Canvas
       shadows
       dpr={[1, 2]}
-      camera={{ position: [0, 0.8, 6], fov: 42 }}
+      camera={{ position: [0, 1.1, 5.2], fov: 42 }}
       gl={{ antialias: true, alpha: true }}
     >
       <ambientLight intensity={0.55} />
