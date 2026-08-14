@@ -101,7 +101,7 @@ function Index() {
             <div className="relative">
               <Hero3D />
               <p className="mt-2 text-center text-xs uppercase tracking-[0.2em] text-petal/50">
-                Drag to rotate · live 3D
+                Live 3D film loop · rendered in real time
               </p>
             </div>
           </div>
