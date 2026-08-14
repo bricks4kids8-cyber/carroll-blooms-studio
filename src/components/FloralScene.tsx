@@ -65,10 +65,10 @@ function Bloom() {
   });
 
   const rings = [
-    { count: 10, radius: 0.7, tilt: -1.25, scale: 0.9, color: "#ffffff" },
-    { count: 8, radius: 0.5, tilt: -0.9, scale: 0.72, color: "#fdf8ec" },
-    { count: 6, radius: 0.3, tilt: -0.5, scale: 0.52, color: "#f7f0dc" },
-    { count: 5, radius: 0.16, tilt: -0.2, scale: 0.34, color: "#f3ead0" },
+    { count: 11, radius: 0.72, tilt: 1.15, scale: 0.95, color: "#ffffff" },
+    { count: 9, radius: 0.5, tilt: 0.85, scale: 0.78, color: "#fdf8ec" },
+    { count: 7, radius: 0.32, tilt: 0.5, scale: 0.56, color: "#f7f0dc" },
+    { count: 5, radius: 0.16, tilt: 0.2, scale: 0.36, color: "#f3ead0" },
   ];
 
   return (
@@ -85,8 +85,8 @@ function Bloom() {
           />
         )),
       )}
-      <mesh position={[0, 0.5, 0]} castShadow>
-        <sphereGeometry args={[0.22, 32, 32]} />
+      <mesh position={[0, 0.42, 0]} castShadow>
+        <sphereGeometry args={[0.26, 32, 32]} />
         <meshStandardMaterial color="#e0b055" roughness={0.6} />
       </mesh>
     </group>
@@ -121,7 +121,7 @@ function Arrangement() {
           <Leaf
             key={i}
             angle={(i / 5) * Math.PI * 2}
-            y={-0.35}
+            y={-0.5}
             scale={[1.1, 0.35, 0.6]}
           />
         ))}
