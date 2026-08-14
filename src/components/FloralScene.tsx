@@ -65,14 +65,14 @@ function Bloom() {
   });
 
   const rings = [
-    { count: 11, radius: 0.72, tilt: 1.15, scale: 0.95, color: "#ffffff" },
-    { count: 9, radius: 0.5, tilt: 0.85, scale: 0.78, color: "#fdf8ec" },
-    { count: 7, radius: 0.32, tilt: 0.5, scale: 0.56, color: "#f7f0dc" },
-    { count: 5, radius: 0.16, tilt: 0.2, scale: 0.36, color: "#f3ead0" },
+    { count: 11, radius: 0.72, tilt: 0.8, scale: 0.95, color: "#ffffff" },
+    { count: 9, radius: 0.5, tilt: 0.6, scale: 0.78, color: "#fdf8ec" },
+    { count: 7, radius: 0.32, tilt: 0.35, scale: 0.56, color: "#f7f0dc" },
+    { count: 5, radius: 0.16, tilt: 0.12, scale: 0.36, color: "#f3ead0" },
   ];
 
   return (
-    <group ref={group} position={[0, 0.15, 0]}>
+    <group ref={group} position={[0, -0.25, 0]}>
       {rings.map((ring, ri) =>
         Array.from({ length: ring.count }).map((_, i) => (
           <Petal
@@ -121,7 +121,7 @@ function Arrangement() {
           <Leaf
             key={i}
             angle={(i / 5) * Math.PI * 2}
-            y={-0.5}
+            y={-0.85}
             scale={[1.1, 0.35, 0.6]}
           />
         ))}
@@ -174,7 +174,7 @@ export default function FloralScene() {
     <Canvas
       shadows
       dpr={[1, 2]}
-      camera={{ position: [0, 1.1, 5.2], fov: 42 }}
+      camera={{ position: [0, 2.1, 5.2], fov: 42 }}
       gl={{ antialias: true, alpha: true }}
     >
       <ambientLight intensity={0.55} />
@@ -192,7 +192,7 @@ export default function FloralScene() {
         enableZoom={false}
         autoRotate
         autoRotateSpeed={0.6}
-        minPolarAngle={Math.PI / 3.2}
+        minPolarAngle={Math.PI / 3.6}
         maxPolarAngle={Math.PI / 1.9}
       />
     </Canvas>
