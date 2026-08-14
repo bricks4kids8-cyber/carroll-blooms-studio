@@ -93,7 +93,7 @@ function Field({
 }: {
   label: string;
   children: React.ReactNode;
-  error?: string;
+  error?: string | undefined;
 }) {
   return (
     <label className="block">
