@@ -19,15 +19,15 @@ function Petal({
   const geometry = useMemo(() => {
     const shape = new THREE.Shape();
     shape.moveTo(0, 0);
-    shape.bezierCurveTo(0.55, 0.15, 0.75, 0.85, 0, 1.5);
-    shape.bezierCurveTo(-0.75, 0.85, -0.55, 0.15, 0, 0);
+    shape.bezierCurveTo(0.42, 0.2, 0.5, 0.95, 0, 1.6);
+    shape.bezierCurveTo(-0.5, 0.95, -0.42, 0.2, 0, 0);
     const geo = new THREE.ExtrudeGeometry(shape, {
-      depth: 0.06,
+      depth: 0.025,
       bevelEnabled: true,
-      bevelSize: 0.06,
-      bevelThickness: 0.06,
+      bevelSize: 0.035,
+      bevelThickness: 0.025,
       bevelSegments: 6,
-      curveSegments: 24,
+      curveSegments: 32,
     });
     geo.center();
     return geo;
@@ -114,22 +114,22 @@ function Leaf({
 
 function Arrangement() {
   return (
-    <group position={[0, -0.6, 0]}>
+    <group position={[0, -0.25, 0]}>
       <Float speed={1.4} rotationIntensity={0.25} floatIntensity={0.7}>
         <Bloom />
         {[0, 1, 2, 3, 4].map((i) => (
           <Leaf
             key={i}
             angle={(i / 5) * Math.PI * 2}
-            y={-0.85}
+            y={-1.05}
             scale={[1.1, 0.35, 0.6]}
           />
         ))}
-        <mesh position={[0, -1.15, 0]} castShadow>
-          <cylinderGeometry args={[0.06, 0.06, 1.2, 16]} />
+        <mesh position={[0, -1.2, 0]} castShadow>
+          <cylinderGeometry args={[0.055, 0.07, 1.5, 16]} />
           <meshStandardMaterial color="#4a7c4f" roughness={0.7} />
         </mesh>
-        <mesh position={[0, -2, 0]} castShadow receiveShadow>
+        <mesh position={[0, -1.95, 0]} castShadow receiveShadow>
           <latheGeometry
             args={[
               [
@@ -174,7 +174,7 @@ export default function FloralScene() {
     <Canvas
       shadows
       dpr={[1, 2]}
-      camera={{ position: [0, 2.1, 5.2], fov: 42 }}
+      camera={{ position: [0, 1.9, 5.6], fov: 42 }}
       gl={{ antialias: true, alpha: true }}
     >
       <ambientLight intensity={0.55} />
